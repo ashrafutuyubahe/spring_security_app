@@ -11,32 +11,31 @@ import jakarta.persistence.Table;
 @Table(name = "users")
 public class User {
 
-      // Define the primary key
+      
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generate the ID
-    @Column(name = "user_id") // Optional: map to a specific column
+    @GeneratedValue(strategy = GenerationType.IDENTITY) 
+    @Column(name = "user_id") 
     private Long id;
 
-    @Column(name = "username", nullable = false, unique = true) // Enforce uniqueness
+    @Column(name = "username", nullable = false, unique = true) 
     private String username;
 
-    @Column(name = "password", nullable = false) // Ensure password is not null
+    @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "email", nullable = false, unique = true) // Enforce unique emails
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
-    // Default constructor (required by JPA)
-    public User() {}
+    
 
-    // Parameterized constructor
+    
     public User(String username, String password, String email) {
         this.username = username;
         this.password = password;
         this.email = email;
     }
 
-    // Getters and setters
+ 
     public Long getId() {
         return id;
     }
