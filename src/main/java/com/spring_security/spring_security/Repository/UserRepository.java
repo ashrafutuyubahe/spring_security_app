@@ -1,17 +1,20 @@
-package com.spring_security.spring_security.Repository;
+package com.Clinic.clinic_management.Repository;
 
-import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import com.spring_security.spring_security.Entity.User;
+import com.Clinic.clinic_management.Models.User;
 
-public interface UserRepository  extends JpaRepository<User,Long>{
-    List<User> findAll();
-    User findUserById(int id);
-    User findByName( String userName);
-    User findByEmail(String userEmail);
-    
 
+
+
+@Repository
+public interface UserRepository extends JpaRepository<User, Long> {
+    Optional<User> findByUserName(String userName);
+    Optional<User> findByUserEmail(String userEmail);
+    Optional<User>  findByResetToken(String token);
 
 }
+
