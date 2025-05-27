@@ -1,39 +1,45 @@
 package com.spring_security.spring_security.Controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+
+import org.springframework.web.bind.annotation.*;
+
+import com.spring_security.spring_security.Dto.LoginDto;
+import com.spring_security.spring_security.Dto.LoginResponseDto;
+import com.spring_security.spring_security.Dto.RegisterDto;
+import com.spring_security.spring_security.serviceImpl.AuthServiceImpl;
 
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController("/spring_security/v1/")
+@RestController
+@CrossOrigin(origins = "*")
+@RequestMapping("clinic-mngs-v2/api/v1/auth")
 public class AuthController {
 
+    private final AuthServiceImpl authServiceImpl;
 
-
-
-    @GetMapping("/home")
-    public void Welcomepage(){
-
-    System.out.println("hello you are at the home page");
-
+    @Autowired
+    public AuthController(AuthServiceImpl authServiceImpl) {
+        this.authServiceImpl = authServiceImpl;
     }
 
     @PostMapping("/register")
-    public  void userRegisterController(){
-        System.out.println("you are about  to register");
+    public ResponseEntity<String> registerUser(@RequestBody RegisterDto registerDto) {
+        String response = authServiceImpl.registerUser(registerDto);
+        System.out.println(registerDto);
+        return ResponseEntity.ok(response);
     }
 
     @PostMapping("/login")
-    public  void userLoginController(){
-        System.out.println("you are about  to login");
+    public ResponseEntity<LoginResponseDto> login(@RequestBody LoginDto loginDto) {
+        LoginResponseDto response = authServiceImpl.loginUser(loginDto);
+
+        return ResponseEntity.ok(response);
     }
 
-    @PostMapping("/logout")
-    public  void userLogoutController(){
-        System.out.println("you are about  to logout");
+    @GetMapping("/welcome")
+    public ResponseEntity<String> welcome() {
+        return ResponseEntity.ok("This is not protected");
     }
-
-
-
 }
