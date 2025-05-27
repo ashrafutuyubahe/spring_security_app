@@ -1,4 +1,4 @@
-package com.Clinic.clinic_management.Config;
+package com.spring_security.spring_security.Config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -20,9 +20,9 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-import com.Clinic.clinic_management.Filters.JwtAuthFilter;
-import com.Clinic.clinic_management.ServiceImpl.CustomUserDetailsService;
-import com.Clinic.clinic_management.ServiceImpl.JwtService;
+import com.spring_security.spring_security.Filters.JwtAuthFilter;
+import com.spring_security.spring_security.serviceImpl.CustomUserDetailsService;
+import com.spring_security.spring_security.serviceImpl.JwtService;
 
 import java.util.Arrays;
 

@@ -1,8 +1,8 @@
-package com.Clinic.clinic_management.Service;
+package com.spring_security.spring_security.Service;
 
-import com.Clinic.clinic_management.Dto.LoginDto;
-import com.Clinic.clinic_management.Dto.LoginResponseDto;
-import com.Clinic.clinic_management.Dto.RegisterDto;
+import com.spring_security.spring_security.Dto.LoginDto;
+import com.spring_security.spring_security.Dto.LoginResponseDto;
+import com.spring_security.spring_security.Dto.RegisterDto;
 
 public interface AuthService {
     String registerUser(RegisterDto registerDto);

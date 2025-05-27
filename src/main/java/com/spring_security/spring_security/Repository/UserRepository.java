@@ -1,11 +1,12 @@
-package com.Clinic.clinic_management.Repository;
+package com.spring_security.spring_security.Repository;
 
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.Clinic.clinic_management.Models.User;
+import com.spring_security.spring_security.Models.User;
+
 
 
 

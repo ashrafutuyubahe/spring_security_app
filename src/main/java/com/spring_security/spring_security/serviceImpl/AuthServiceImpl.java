@@ -1,4 +1,4 @@
-    package com.Clinic.clinic_management.ServiceImpl;
+    package com.spring_security.spring_security.serviceImpl;
 
     import org.springframework.beans.factory.annotation.Autowired;
     import org.springframework.security.authentication.AuthenticationManager;
@@ -9,13 +9,14 @@
     import org.springframework.security.crypto.password.PasswordEncoder;
     import org.springframework.stereotype.Service;
 
-    import com.Clinic.clinic_management.Dto.LoginDto;
-    import com.Clinic.clinic_management.Dto.LoginResponseDto;
-    import com.Clinic.clinic_management.Dto.RegisterDto;
-    import com.Clinic.clinic_management.Models.User;
-    import com.Clinic.clinic_management.Repository.UserRepository;
-    import com.Clinic.clinic_management.Service.AuthService;
+import com.spring_security.spring_security.Dto.LoginDto;
+import com.spring_security.spring_security.Dto.LoginResponseDto;
+import com.spring_security.spring_security.Dto.RegisterDto;
+import com.spring_security.spring_security.Models.User;
+import com.spring_security.spring_security.Repository.UserRepository;
+import com.spring_security.spring_security.Service.AuthService;
 
+ 
 
     @Service
     public class AuthServiceImpl implements AuthService {

@@ -1,4 +1,4 @@
-package com.Clinic.clinic_management.ServiceImpl;
+package com.spring_security.spring_security.serviceImpl;
 
 import java.security.Key;
 import java.util.Date;

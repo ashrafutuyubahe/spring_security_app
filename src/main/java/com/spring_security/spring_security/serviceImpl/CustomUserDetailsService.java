@@ -1,4 +1,4 @@
-package com.Clinic.clinic_management.ServiceImpl;
+package com.spring_security.spring_security.serviceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -6,8 +6,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.Clinic.clinic_management.Models.User;
-import com.Clinic.clinic_management.Repository.UserRepository;
+import com.spring_security.spring_security.Models.User;
+import com.spring_security.spring_security.Repository.UserRepository;
+
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {

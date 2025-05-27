@@ -1,9 +1,11 @@
-package com.Clinic.clinic_management.Models;
+package com.spring_security.spring_security.Models;
 
 
 import org.springframework.boot.autoconfigure.amqp.RabbitConnectionDetails.Address;
 
-import com.Clinic.clinic_management.classes.ResetToken;
+import com.spring_security.spring_security.classes.ResetToken;
+
+import org.springframework.boot.autoconfigure.amqp.RabbitConnectionDetails.Address;
 
 import jakarta.persistence.Column;
 
@@ -15,6 +17,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import lombok.AllArgsConstructor;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

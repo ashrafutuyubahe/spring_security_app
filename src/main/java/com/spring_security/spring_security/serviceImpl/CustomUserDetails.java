@@ -1,11 +1,12 @@
-package com.Clinic.clinic_management.ServiceImpl;
+package com.spring_security.spring_security.serviceImpl;
 
 import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.Clinic.clinic_management.Models.User;
+import com.spring_security.spring_security.Models.User;
+
 
 public class CustomUserDetails implements UserDetails {
 
