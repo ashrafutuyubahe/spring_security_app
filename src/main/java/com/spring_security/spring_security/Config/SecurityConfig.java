@@ -44,7 +44,7 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
-                                "/clinic-mngs-v2/api/v1/auth/login",
+                                "/clinic-mngs-v2/api/v1/auth/login",  // just change according to your controller urll
                                 "/clinic-mngs-v2/api/v1/auth/register",
                                 "/swagger-ui/**",
                                 "/v3/api-docs/**",
