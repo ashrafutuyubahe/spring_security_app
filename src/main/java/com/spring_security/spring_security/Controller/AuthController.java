@@ -10,11 +10,9 @@ import com.spring_security.spring_security.Dto.LoginResponseDto;
 import com.spring_security.spring_security.Dto.RegisterDto;
 import com.spring_security.spring_security.serviceImpl.AuthServiceImpl;
 
-
-
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("clinic-mngs-v2/api/v1/auth") 
+@RequestMapping("clinic-mngs-v2/api/v1/auth")
 public class AuthController {
 
     private final AuthServiceImpl authServiceImpl;
@@ -26,27 +24,42 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<String> registerUser(@RequestBody RegisterDto registerDto) {
-        String response = authServiceImpl.registerUser(registerDto);
-        System.out.println(registerDto);
-        return ResponseEntity.ok(response);
+        try {
+            String response = authServiceImpl.registerUser(registerDto);
+            System.out.println(registerDto);
+            return ResponseEntity.ok(response);
+        } catch (Exception ex) {
+            return ResponseEntity.ok("MESSAGE: " + ex.getMessage());
+        }
     }
 
     @PostMapping("/login")
     public ResponseEntity<LoginResponseDto> login(@RequestBody LoginDto loginDto) {
-        LoginResponseDto response = authServiceImpl.loginUser(loginDto);
-
-        return ResponseEntity.ok(response);
+        try {
+            LoginResponseDto response = authServiceImpl.loginUser(loginDto);
+            return ResponseEntity.ok(response);
+        } catch (Exception ex) {
+            return ResponseEntity.ok(new LoginResponseDto(null, null, null, "MESSAGE: " + ex.getMessage(), null, null));
+        }
     }
 
     @GetMapping("/user_endpoint")
-    @PreAuthorize("hasRole('USER') ')")
+    @PreAuthorize("hasRole('USER')")
     public ResponseEntity<String> userEndpoint() {
-        return ResponseEntity.ok("This is  protected resource for USER role");
+        try {
+            return ResponseEntity.ok("This is  protected resource for USER role");
+        } catch (Exception ex) {
+            return ResponseEntity.ok("MESSAGE: " + ex.getMessage());
+        }
     }
 
     @GetMapping("/admin_endpoint")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<String> adminEndpoint() {
-        return ResponseEntity.ok("This is not protected for ADMIN role");
+        try {
+            return ResponseEntity.ok("This is not protected for ADMIN role");
+        } catch (Exception ex) {
+            return ResponseEntity.ok("MESSAGE: " + ex.getMessage());
+        }
     }
 }
