@@ -60,6 +60,10 @@ private String userPassword;
 @Column(name = "user_phone", length = 255, nullable = false)
 private String userPhone;
 
+@NotBlank(message = "role is required")
+@Column(name = "role", length = 50, nullable = false)
+private String role;
+
 
 @Embedded
 private Address address;

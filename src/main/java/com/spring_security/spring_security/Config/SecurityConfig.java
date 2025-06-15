@@ -51,6 +51,8 @@ public class SecurityConfig {
                                 "/swagger-resources/**",
                                 "/webjars/**")
                         .permitAll()
+                        .requestMatchers("/clinic-mngs-v2/api/v1/auth/welcome user ").hasRole("USER")
+                        .requestMatchers("/clinic-mngs-v2/api/v1/auth/welcome admin").hasRole("ADMIN")
                         .anyRequest().authenticated())
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
