@@ -1,4 +1,4 @@
-    package com.spring_security.spring_security.serviceImpl;
+package com.spring_security.spring_security.serviceImpl;
 
     import org.springframework.beans.factory.annotation.Autowired;
     import org.springframework.security.authentication.AuthenticationManager;
@@ -54,6 +54,7 @@ import com.spring_security.spring_security.Service.AuthService;
             user.setUserEmail(registerDto.getUserEmail());
             user.setUserPassword(hashedPassword);
             user.setUserPhone(registerDto.getUserPhone());
+            user.setRole(registerDto.getRole());
 
             userRepository.save(user);
 
@@ -76,7 +77,7 @@ import com.spring_security.spring_security.Service.AuthService;
         
                     String token = jwtService.generateToken(loginDto.getUserName());
         
-                    return new LoginResponseDto(token, user.getUserName(), user.getUserEmail(), "Login successful",user.getUserId());
+                    return new LoginResponseDto(token, user.getUserName(), user.getUserEmail(), "Login successful", user.getUserId(), user.getRole());
                 }
             } catch (BadCredentialsException e) {
                 throw new BadCredentialsException("Invalid username or password");

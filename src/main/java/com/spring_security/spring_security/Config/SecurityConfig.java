@@ -51,6 +51,8 @@ public class SecurityConfig {
                                 "/swagger-resources/**",
                                 "/webjars/**")
                         .permitAll()
+                        .requestMatchers("/clinic-mngs-v2/api/v1/auth/user_endpoint").hasRole("USER")
+                        .requestMatchers("/clinic-mngs-v2/api/v1/auth/admin_endpoint").hasRole("ADMIN")
                         .anyRequest().authenticated())
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
@@ -59,7 +61,7 @@ public class SecurityConfig {
                         UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
-
+    
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

@@ -29,6 +29,9 @@ public class RegisterDto {
     @NotBlank(message = "User phone is required")
     private String userPhone;
 
+    @NotBlank(message = "Role is required")
+    private String role;
+
     @Override
     public String toString() {
         return "RegisterDto [userName=" + userName + ", userEmail=" + userEmail + ", userPassword=" + userPassword

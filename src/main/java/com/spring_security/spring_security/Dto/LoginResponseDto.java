@@ -14,8 +14,15 @@ public class LoginResponseDto {
     private String userEmail;
     private String message;
     private Long userId;
+    private String userPhone;
+    private String role;
 
-
-   
-    
+    public LoginResponseDto(String token, String userName, String userEmail, String message, Long userId, String role) {
+        this.token = token;
+        this.userName = userName;
+        this.userEmail = userEmail;
+        this.message = message;
+        this.userId = userId;
+        this.role = role;
+    }
 }
