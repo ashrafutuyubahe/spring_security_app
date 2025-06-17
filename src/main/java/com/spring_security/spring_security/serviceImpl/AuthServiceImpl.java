@@ -25,6 +25,9 @@ import com.spring_security.spring_security.Service.AuthService;
         private final PasswordEncoder passwordEncoder;
         private final AuthenticationManager authenticationManager;
         private final JwtService jwtService;
+        @Autowired
+        private EmailService emailService;
+
     
 
         @Autowired
@@ -56,9 +59,18 @@ import com.spring_security.spring_security.Service.AuthService;
             user.setUserPhone(registerDto.getUserPhone());
             user.setRole(registerDto.getRole());
 
-            userRepository.save(user);
+            User savedUser = userRepository.save(user);
 
-            return "User registered successfully";
+  //  after successful registration,I  send a welcome email 
+        emailService.sendSimpleEmail(
+            savedUser.getUserEmail(),
+            "Welcome to Our App!",
+            "Hello " + savedUser.getUserName() + ",\n\nThank you for signing up!"
+        );
+
+        return "User registered successfully with ID: " + savedUser.getUserId() 
+                + " and role: " + savedUser.getRole();
+        
         }
 
 
