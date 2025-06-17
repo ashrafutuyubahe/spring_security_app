@@ -25,7 +25,9 @@ import com.spring_security.spring_security.Service.AuthService;
         private final PasswordEncoder passwordEncoder;
         private final AuthenticationManager authenticationManager;
         private final JwtService jwtService;
-    
+      @Autowired
+      private EmailService emailService;
+
 
         @Autowired
         public AuthServiceImpl(UserRepository userRepository,
@@ -55,9 +57,17 @@ import com.spring_security.spring_security.Service.AuthService;
             user.setUserPassword(hashedPassword);
             user.setUserPhone(registerDto.getUserPhone());
 
-            userRepository.save(user);
+           
+            User savedUser = userRepository.save(user);
+            
+            emailService.sendSimpleEmail(
+                savedUser.getUserEmail(),
+                "Welcome to Our App!",
+                "Hello " + savedUser.getUserName() + ",\n\nThank you for signing up!"
+            );
 
-            return "User registered successfully";
+      
+            return "User registered successfully with ID: " + savedUser.getUserId();
         }
 
 
