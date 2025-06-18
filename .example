@@ -1,0 +1,56 @@
+hostiptoa  needs  system to maage doctor  and patientrecords  th sustens  should allo adding of dcoosn  reistrting patients and savig  inffomation to a file
+
+systm  requiremt ns  youa re  are  requied to disnad  implem java  application tha dmeasts  this 
+
+classes and  their  propertes 
+
+patitents
+
+properties  
+string firsname,
+strin lastname
+it age
+string gender
+
+2. docot
+classes that  implet doctos and ilcudes dctor spefici information
+addition properties 
+string dcoitiif 
+string speicalizaion
+
+3. patient 
+this caless reposent s patie ac inlded patient spefici informrion
+
+additions propties
+string doctor
+
+string specialition
+
+3. patiet
+this class representi  patient and includes patient speficic information
+
+addition properties
+
+string patientId
+string diagnosis
+string admitte date
+
+oop  coencept  to app
+
+
+encapuliton: protect datoc ansd patient
+inheritance: allow dicto and patiet  cleases to inherit common attricbutes from the parent ckcaeass 
+
+polymopprhinsm: ovverif methodds like disply infos in each sublcasess  to sho infomration specific to dcots and patients
+
+abreaction : use paerson css as  builprint fr shtared and bahavior
+
+
+fucntionnalirs  to imlemnt
+
+add new doctor records 
+register nw  patients
+ds[pla list of all docots  and apatient]
+
+save dicto and patient inifotmation to a file 
+retirve dcotor nad pateitn infomation  from a file 
